@@ -1,0 +1,42 @@
+# 基础配置
+num_runs: 3  # 每个模型运行测试的次数
+prompt: '在此输入您想要测试的提示词'  # 用于测试的提示词
+
+# 服务提供商配置
+providers:
+  # OpenRouter配置
+  openrouter:
+    name: 'openrouter'  # 提供商显示名称
+    base_url: 'https://openrouter.ai/api/v1'  # API基础URL
+    api_key: 'your-openrouter-api-key'  # 在此填入您的API密钥
+    models:  # 要测试的模型列表
+      - 'anthropic/claude-3-sonnet'
+      - 'deepseek/deepseek-coder'
+
+  # 阿里云百炼配置
+  bailian:
+    name: '阿里云百炼'
+    base_url: 'https://dashscope.aliyuncs.com/compatible-mode/v1'
+    api_key: 'your-bailian-api-key'
+    models:
+      - 'qwen-max'
+      - 'qwen-plus'
+      - 'deepseek-v3'
+
+  # 火山引擎配置
+  huoshan:
+    name: '火山引擎'
+    base_url: 'https://ark.cn-beijing.volces.com/api/v3'
+    api_key: 'your-huoshan-api-key'
+    models:
+      - 'deepseek-r1'
+      - 'deepseek-v3'
+      - 'doubao-pro'
+
+  # CloseAI配置
+  closeai:
+    name: 'CloseAI'
+    base_url: 'https://api.openai-proxy.org/v1'
+    api_key: 'your-closeai-api-key'
+    models:
+      - 'deepseek-reasoner'
