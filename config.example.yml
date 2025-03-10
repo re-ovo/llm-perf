@@ -20,8 +20,9 @@ providers:
     api_key: 'your-bailian-api-key'
     models:
       - 'qwen-max'
-      - 'qwen-plus'
+      - 'qwq-plus'
       - 'deepseek-v3'
+      - 'deepseek-r1'
 
   # 火山引擎配置
   huoshan:
@@ -29,9 +30,9 @@ providers:
     base_url: 'https://ark.cn-beijing.volces.com/api/v3'
     api_key: 'your-huoshan-api-key'
     models:
-      - 'deepseek-r1'
-      - 'deepseek-v3'
-      - 'doubao-pro'
+      - 'deepseek-r1-250120'
+      - 'deepseek-v3-241226'
+      - 'doubao-1-5-pro-32k-250115'
 
   # CloseAI配置
   closeai:
