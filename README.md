@@ -8,13 +8,14 @@
 ## 截图
 
 ![截图](./docs/image.png)
+
 ## 配置
 
 在`config.yml`中配置LLM提供商信息, 参考`config.example.yml`
 
 ## 安装依赖
 
-使用UV安装依赖
+使用[UV](https://docs.astral.sh/uv/)安装依赖
 
 ```bash
 uv sync
