@@ -102,8 +102,8 @@ async def main():
     table = Table(title=f"LLM提供商性能评估 (每个模型测试{num_runs}次的平均值)")
     table.add_column("提供商", style="cyan")
     table.add_column("模型", style="magenta")
-    table.add_column("平均TTFT (秒)", justify="right", style="green")
-    table.add_column("平均TPS (tokens/s)", justify="right", style="yellow")
+    table.add_column("平均TTFT (秒)", justify="right")
+    table.add_column("平均TPS (tokens/s)", justify="right")
     
     # 创建任务列表
     tasks = []
@@ -149,11 +149,28 @@ async def main():
             )
         else:
             ttft, tps = result
+            
+            # 根据TTFT值选择颜色
+            if ttft < 1:
+                ttft_style = "green"
+            elif ttft <= 3:
+                ttft_style = "yellow"
+            else:
+                ttft_style = "red"
+                
+            # 根据TPS值选择颜色
+            if tps > 20:
+                tps_style = "green"
+            elif tps >= 10:
+                tps_style = "yellow"
+            else:
+                tps_style = "red"
+                
             table.add_row(
                 provider_name,
                 model,
-                f"{ttft:.3f}",
-                f"{tps:.2f}"
+                f"[{ttft_style}]{ttft:.3f}[/{ttft_style}]",
+                f"[{tps_style}]{tps:.2f}[/{tps_style}]"
             )
     
     console.print(table)
